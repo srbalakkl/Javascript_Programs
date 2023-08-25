@@ -1,5 +1,5 @@
+console.log('********* Promise *********')
 const arrived = true;
-// @ts-ignore
 const ride = new Promise(function (resolve,reject) {
     if (arrived){
         resolve("I arrived")
@@ -9,18 +9,20 @@ const ride = new Promise(function (resolve,reject) {
 });
 
 ride.then(value =>{
-    console.log(value)
+    console.log('then',value)
 })
 
 ride.catch(val =>{
-    console.log(val)
+    console.log('catch',val)
 })
 
 ride.finally(val=>{
-    console.log(val)
+    console.log('final',val)
 })
 
 //****** Multiple Promises*******
+
+console.log(`****** Multiple Promises*******`)
 function watchTutorialCallback(callback, errorCallback) {
     let userLeft = false
     let userWatchingCatMeme = false
