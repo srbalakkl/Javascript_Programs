@@ -1,0 +1,18 @@
+{
+  "name": "javascript_programs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Promises.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srbalakkl/Javascript_Programs.git"
+  },
+  "private": true,
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  },
+  "type": "module"
+}
