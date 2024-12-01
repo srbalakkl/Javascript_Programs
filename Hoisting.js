@@ -21,7 +21,7 @@ console.log(y(10, 20))
 * EG:
 * */
 
-console.log(a);/*<- Here value of a will be automatically hoisted(ie: on the above console.log(a) line 'var a = undefined' will be
-automatically added so the o/p = undefined.*/
+console.log( a);/*<- Here value of a will be automatically hoisted (i.e: on the above console.log(a) line 'var a = undefined' will be
+automatically added) to undefined. */
 // to undefined.
 var a = 10;/*<- if you use let instead of `var` then it will throw `ReferenceError: Cannot access 'a' before initialization`. */

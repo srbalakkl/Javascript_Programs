@@ -1,15 +1,15 @@
 /*** Iterable ***/
+
 /**
  * To make something iterable That think must have Iterator object living on it.
  *
  * Any think can be converted to Iterator object by using Symbol.iterator() method.
- */
+ * */
 
 
-/*** Iterators ***/
+
 /**
- *
- * Iterator is an object which define sequence,
+ * @desc Iterator is an object which define sequence,
  * and return value upon termination.
  *
  * Specifically, Iterator is any object which implement ITERATOR PROTOCOLS by having next() method
