@@ -17,30 +17,30 @@
 const array = [1, 2, 3, 4, 5]
 
 function addArrayElement(element) {
-    // this is not a pure function because array variable in this function is relayed on external variable.
+    // this is not a pure function because the array variable in this function is relayed on external variable.
     array.push(element)
 }
 
 function addArrayElement2(a, element) {
-    // this is also not a pure function because the variable a has side effects
-    // that is the arrays value will change the old variables value too.
+    // this is also not a pure function because the variable has side effects
+    // that is the array value will change the old variables value too.
     a.push(element)
 }
 
 function addArrayElement3(a, element) {
     // This is an example for pure function.
     //  in this case the old array variables value not be changed.
-    return [...a,element]
+    return [...a, element]
 }
 
 /**** Changing an object in an impure way *****/
 
 const impureAssoc = (key, value, object) => {
-     object[key] = value;
+    object[key] = value;
 }
 
 const person = {
-    name:'bala'
+    name: 'bala'
 };
 
 const result = impureAssoc('age', 20, person);
@@ -69,23 +69,23 @@ console.log({
 /** Unsafe Nested Mutation */
 const person = {
     name: 'Bobo',
-    address: { street: 'Main Street', number: 123 }
+    address: {street: 'Main Street', number: 123}
 };
 
-const shallowPersonClone = { ...person };
+const shallowPersonClone = {...person};
 shallowPersonClone.address.number = 456;
 
-console.log({ person, shallowPersonClone });
+console.log({person, shallowPersonClone});
 
 /** Safe Nested Mutation
-To safely mutate nested properties, we need a deep clone.*/
+ To safely mutate nested properties, we need a deep clone.*/
 
-    const person = {
+const person = {
     name: 'Bobo',
-    address: { street: 'Main Street', number: 123 }
+    address: {street: 'Main Street', number: 123}
 };
 
 const deepPersonClone = JSON.parse(JSON.stringify(person));
 deepPersonClone.address.number = 456;
 
-console.log({ person, deepPersonClone });
+console.log({person, deepPersonClone});
