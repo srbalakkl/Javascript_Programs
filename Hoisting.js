@@ -1,7 +1,7 @@
 /**
  * @desc
- * Hoisting is the built-in behavior of the language through which declarations of functions, variables, and classes
- *  are moved to the top of their scope.
+ * Hoisting is a JavaScript mechanism
+ * where variables and function declarations are moved to the top of their scope before code execution.
  * */
 
 console.log(sum(11, 12));
@@ -21,7 +21,7 @@ console.log(y(10, 20))
 * EG:
 * */
 
-console.log( a);/*<- Here value of a will be automatically hoisted (i.e: on the above console.log(a) line 'var a = undefined' will be
+console.log(a);/*<- Here value of a will be automatically hoisted (i.e: on the above console.log(a) line 'var a = undefined' will be
 automatically added) to undefined. */
 // to undefined.
 var a = 10;/*<- if you use let instead of `var` then it will throw `ReferenceError: Cannot access 'a' before initialization`. */
