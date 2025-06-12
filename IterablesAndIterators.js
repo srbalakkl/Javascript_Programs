@@ -1,25 +1,20 @@
-/*** Iterable ***/
 
+//iterable
 /**
- * To make something iterable, That think must have an Iterator object living on it.
  *
- * Anything can be converted to an Iterator object by using the ` Symbol.iterator () ` method.
+ * @desc An **iterable** is any object that implements the `@@iterator` method.
+ * (which is a method with the special key [Symbol.iterator]).
  *
  * */
 
-
+// iterator
 /**
- * @desc Iterator is an object that defines sequence,
- * and return value upon termination.
+ * @desc An iterator is an object that provides a standardized way to access items in a collection,
+ * one at a time.
  *
- * Specifically, Iterator is any object that implements ITERATOR PROTOCOLS by having 'next()' method.
- *
- * next() method return object with two properties:
- * value: <given value> and done<boolean value>
- *
- * done property is true if the iterator has no more values to return.
- *
- * value property is the value returned by the iterator.
+ * - It must have a `next()` method, which returns an object with two properties:
+ *     - The next value in the sequence `value`
+ *     - `true` if there are no more values, `false` otherwise `done`
  *
  * */
 

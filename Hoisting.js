@@ -2,8 +2,12 @@
  * @desc
  * Hoisting is a JavaScript mechanism
  * where variables and function declarations are moved to the top of their scope before code execution.
+ *
+ * Hoisting will not work for aero function, const and let variable.
  * */
 
+
+/*** Function Hoisting *** */
 console.log(sum(11, 12));
 
 function sum(x, y) {

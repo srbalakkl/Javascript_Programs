@@ -1,23 +1,18 @@
 /**
- * @desc Explains the fundamental differences between JavaScript closures and hoisting.
+ * @desc Closure is a function that has access to the variables outside of their own curly braces.
  *
- * - **Closures** Refer to a function's ability to "remember" and access variables
- *   from its enclosing lexical scope, even when the function is executed outside that scope.
- *   Essentially, closures are about scope persistence for a function.
+ * Closure is not a function, but it is a function combined with its outer state / lexical environment.
  *
- * - **Hoisting** Describes JavaScript's behavior where variable (with `var`) and function declarations
- *   are conceptually moved to the top of their containing scope during the compilation phase,
- *   before code execution. This impacts the perceived **order of declaration** and the
- *   availability of these identifiers within that scope. Note that `let` and `const`
- *   declarations are also hoisted but not initialized, leading to a "temporal dead zone".
- */
+ * Closure requires more memory than normal/pure function.
+ *
+ * */
 
 /** Example 1 **/
 
-let person = 'Riya'
+let person = 'Riya'; // <- This is a global variable / outer state / lexical environment to the function printPerson()
 
 function printPerson() {
-    console.log(person)//<- here unlike another programming language,
+    console.log('Person = ', person)//<- here unlike another programming language,
     // the person variable work perfectly fine (even though it is in other/outer scope)
     // because of JavaScript's closure property.
 }
@@ -27,24 +22,69 @@ person = 'bala'
 printPerson();
 
 
-/**************** Example 2 ***************/
+/********* Example 2 ***************/
+
+function outerFunction() {
+    let state = '🐵';
+
+    function innerFunction() {
+        return `Hello ${state}`;
+    }
+
+    return innerFunction;
+
+}
+
+
+/**************** Example 3 ***************/
 
 function outerFn(outerVariable) {
-    console.log("Outer Function Variable:",outerVariable)
+    console.log("Outer Function Variable:", outerVariable)
 
     return function innerFn(innerVariable) {
-        console.log("Inner Function Variable:",innerVariable)
+        console.log("Inner Function Variable:", innerVariable)
     }
 }
 
-const funct = outerFn('asdf');
+const funct = outerFn('OV..');
 
-funct('22143213sDF');//<- Here the inner function variable is accessed.
+funct('IV...');//<- Here the inner function variable is accessed.
 
 
-/** Variable Hoisting **/
+/**************** Example 4 ***************/
 
-// Variable Hoisting example
-console.log(myVar); // Outputs undefined due to hoisting.
-var myVar = "My Variable";
-console.log(myVar);
+function points(totalPointsParam) {
+    console.log('Function running...')
+    const totalPoints = totalPointsParam;
+
+
+    const addPoints = (pointsArg) => {
+        return totalPoints + pointsArg;
+    }
+
+    const subtractPoints = (pointsArg) => {
+        return totalPoints - pointsArg;
+    }
+
+    const getTotalPoints = () => {
+        return totalPoints;
+    }
+
+    return {
+        addPoints,
+        subtractPoints,
+        getTotalPoints
+    }
+}
+
+const table = points(100);//
+console.log(table.addPoints(10));//110
+console.log(table.subtractPoints(10));//90
+console.log(table.getTotalPoints());//100
+
+// Here, since there is no single instance is created for all tables methods, So
+// the totalPoints variable is not shared between the methods, and it produces a different result for each method.
+
+
+
+
