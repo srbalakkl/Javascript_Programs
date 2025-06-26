@@ -9,12 +9,15 @@ const original = {
 
 // Shallow copy
 // (i.e., only the top-level properties or reference of the original object is copied NOT THE DATA OF THE OBJECT)
-const shallowCopy = {...original};
+const shallowCopy = {...original}; // If we don't use object destructuring, then the name variable also got changed.
+// Const shallowCopy = original;    //<- if we copy it in this way, then 'original.name' object also got shallowly copied.
 
 // Modify the nested object in the shallow copy
+shallowCopy.name = 'bobby'
 shallowCopy.details.city = "Looking Glass";
 
-// Original object is also affected
+// The original object is also affected
+console.log(original.name);// Output: "Alice"
 console.log(original.details.city); // Output: "Looking Glass"
 
 /*** Deep Copy ***/
@@ -29,20 +32,12 @@ console.log(original.details.city); // Output: "Looking Glass"
 // 2) Deep copy methods can be slower, especially for large objects, so use them judiciously.
 
 
-const original = {
-    name: "Alice",
-    details: {
-        age: 25,
-        city: "Wonderland"
-    }
-};
-
 // Deep copy using JSON methods
 const deepCopy = JSON.parse(JSON.stringify(original));
 
 // Modify the nested object in the deep copy
-deepCopy.details.city = "Looking Glass";
+deepCopy.details.city = "Wonderland";
 
 // Original object remains unchanged
-console.log(original.details.city); // Output: "Wonderland"
+console.log(deepCopy.details.city); // Output: "Wonderland"
 
