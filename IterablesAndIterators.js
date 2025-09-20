@@ -5,6 +5,10 @@
  * @desc An **iterable** is any object that implements the `@@iterator` method.
  * (which is a method with the special key [Symbol.iterator]).
  *
+ * The datatypes that come with the built-in iterator methods are
+ * Iterables (because it has a built-in iterator method [Symbol.iterator]): Array, String, Maps, Sets.
+ *
+ *
  * */
 
 // iterator
